@@ -1,0 +1,146 @@
+###############################################
+# OS JUNK
+###############################################
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.tmp
+*.tmp.*
+
+###############################################
+# PYTHON CACHE & ARTIFACTS
+###############################################
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*$py.class
+*.so
+*.pkl
+
+###############################################
+# ENVIRONMENTS & SECRETS
+###############################################
+.venv/
+venv/
+env/
+ENV/
+*.env
+.env
+.env.*
+
+###############################################
+# BUILD / PACKAGING
+###############################################
+build/
+dist/
+wheels/
+*.egg-info/
+.eggs/
+*.egg
+MANIFEST
+share/python-wheels/
+
+###############################################
+# JUPYTER NOTEBOOKS
+###############################################
+.ipynb_checkpoints/
+*.nb.html
+
+###############################################
+# TESTS / COVERAGE
+###############################################
+.pytest_cache/
+.tox/
+.nox/
+coverage.xml
+.coverage
+.coverage.*
+htmlcov/
+.hypothesis/
+
+###############################################
+# TYPE CHECKERS / STATIC ANALYSIS
+###############################################
+.mypy_cache/
+.pyright/
+.pyre/
+.pytype/
+.pybuilder/
+dmypy.json
+
+###############################################
+# EDITORS / IDE SETTINGS
+###############################################
+.vscode/
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+.spyproject
+.ropeproject
+
+###############################################
+# DOCUMENTATION BUILD OUTPUT
+###############################################
+docs/_build/
+site/
+
+###############################################
+# PROJECT-SPECIFIC DATA & ARTIFACTS
+###############################################
+# Raw datasets (keep only README.md)
+dataset/
+!dataset/README.md
+
+data/
+!data/README.md
+
+# Outputs / reports (keep README.md)
+outputs/
+!outputs/README.md
+
+reports/
+!reports/README.md
+
+logs/
+!logs/README.md
+
+###############################################
+# TRAINING ARTIFACTS
+###############################################
+checkpoints/
+!checkpoints/README.md
+
+lightning_logs/
+runs/
+tb_logs/
+wandb/
+mlruns/
+
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.onnx
+
+###############################################
+# ML / DL CACHES
+###############################################
+.cache/
+__pypackages__/
+
+###############################################
+# TIMEBRIDGE PROJECT SPECIFIC
+###############################################
+_logs/
+results/
+test_results/
+
+###############################################
+# DATA FILE TYPES
+###############################################
+*.csv
+*.npz
+*.npy
