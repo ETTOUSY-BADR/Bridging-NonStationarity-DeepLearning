@@ -1,55 +1,93 @@
-# TimeBridge-Enhanced-NonStationnary-MTS
-**Non-Stationarity Matters for Long-term Time Series Forecasting — with practical enhancements and clean tooling**
+<h1 align="center"> Bridging Classical Non-Stationarity Tests and Deep Learning</h1>
 
-<div align="center">
+<h3 align="center">
+  <strong>Analysis Framework for Non-Stationary Time-Series + Enhanced TimeBridge Implementation</strong>
+</h3>
 
-[Paper (arXiv)](https://arxiv.org/abs/2410.04442) ·
-[Original Repo](https://github.com/Hank0626/TimeBridge) ·
-[ICML 2025 Poster]
+<p align="center">
+  <a href="https://www.ensea.fr/"><img src="https://img.shields.io/badge/ENSEA-blue?style=for-the-badge"></a>
+  <a href="https://www.etis-lab.fr/"><img src="https://img.shields.io/badge/ETIS%20LAB-orange?style=for-the-badge"></a>
+  <img src="https://img.shields.io/badge/Python-3.10+-yellow?style=for-the-badge">
+  <img src="https://img.shields.io/badge/PyTorch-Deep%20Learning-red?style=for-the-badge">
+</p>
 
-</div>
+<p align="center">
+  <em>Research Project by <strong>Badr Ettousy</strong> — ENSEA / ETIS LAB</em><br>
+  <em>Supervised by <strong>Dr. Etienne Vareille</strong> & <strong>Dr. Vassilis Christophides</strong></em>
+</p>
 
+---
 
-## What’s in this repo?
+##  Project Overview
 
-This is a **research-grade, enhanced implementation** of **TimeBridge**, focused on **non-stationary multivariate time-series forecasting**.
+This repository accompanies the research project:
 
-**Enhancements (this repo):**
--  **Diagnostics**: ADF / KPSS / Engle–Granger cointegration utilities (optional module)
--  **Configurable detrending** in Integrated Attention (EMA / moving-average / HP / STL)
--  **Adaptive patch downsampling** options (learned/Top-K/attn-pool)
--  **Cointegration-aware attention priors** (use EG as a soft prior)
--  **Ablation runners** + seeds + clean result tables
--  **Professional tooling**: .gitignore, dataset layout, Windows & Linux commands
+**“Bridging Classical Non-Stationarity Tests and Deep Learning:
+A Comparative Analysis of Statistical Diagnostics and TimeBridge Representations.”**
 
-> You can use **vanilla TimeBridge** as in the paper, then progressively enable these improvements.
+It integrates two worlds:
 
+### **1️ Classical Statistical Tests for Non-Stationarity**
+(from the article *Analyse des séries temporelles non-stationnaires* :contentReference[oaicite:0]{index=0})
 
-## Updates
+- Augmented Dickey–Fuller (ADF)
+- KPSS test
+- Priestley–Subba Rao (PSR)
+- Spectral invariance tests
+- Engle–Granger Cointegration
+- Conditional independence tests for non-stationary time series
 
-- **2025-05-01** — TimeBridge accepted as **ICML 2025 Poster** (original work).
-- **2025-04-18** — Released detailed training logs (see `_logs/`, if present).
-- **2025-02-11** — Initial public code release (original).
-- **2024-10-08** — First arXiv upload of the paper.
+### **2️ Deep Learning for Non-Stationary Forecasting**
+(based on **TimeBridge** from ICML 2025 as described in the article :contentReference[oaicite:1]{index=1})
 
-> This fork adds diagnostics & training quality-of-life features on top of the original.
+- Integrated Attention → removes short-term non-stationarity  
+- Cointegrated Attention → preserves long-term dependencies  
+- Patch Downsampling  
+- Patch Embedding  
+- State-of-the-art results on ETT, Weather, Traffic, Electricity, Solar, etc.
 
+---
 
-##  Environment Setup
+##  What This Repo Contains
 
-> Windows PowerShell (recommended) or Linux/macOS shell.
+This repo is a **clean Python framework** designed to:
+
+###  Implement TimeBridge (PyTorch)  
+###  Add statistical diagnostics for non-stationarity  
+###  Evaluate datasets with ADF / KPSS / PSR / EG  
+###  Study short-term vs long-term effects of non-stationarity  
+###  Produce plots, confusion matrices, and analytical reports  
+###  Combine classical econometrics with modern deep learning  
+
+---
+
+##  Differences from the Original TimeBridge Repo
+
+- Added **statistical tests** (ADF, KPSS, PSR, Engle–Granger)
+- Added **synthetic dataset generator** for stationary / non-stationary series  
+- Added **clean dataset pipeline** (ETT, Traffic, Electricity...)
+- Added **evaluation framework**
+- Cleaned architecture + Windows compatibility
+- Professional `.gitignore` + repo structure
+- Clear documentation
+
+Original TimeBridge paper → https://arxiv.org/abs/2410.04442  
+Original code → https://github.com/Hank0626/TimeBridge
+
+---
+
+## Environment Setup (Windows, Linux, macOS)
 
 ```bash
 # create & activate venv (Windows)
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 
-# or on Linux/macOS
-python -m venv .venv
+# OR Linux/macOS
 source .venv/bin/activate
 
-# install dependencies
+# install packages
 pip install -r requirements.txt
 
-# (Optional) verify CUDA
-python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
+# optional GPU test
+python -c "import torch; print(torch.cuda.is_available())"
