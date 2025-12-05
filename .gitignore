@@ -136,7 +136,12 @@ __pypackages__/
 ###############################################
 _logs/
 results/
-test_results/
+
+
+# Track everything else (txt, csv, png, folders)
+!test_results/
+!test_results/**
+
 
 ###############################################
 # DATA FILE TYPES
