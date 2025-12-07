@@ -19,6 +19,8 @@ data_name=ETTh1
 CUDA_VISIBLE_DEVICES=$GPU \
 python -u run.py \
   --is_training 1 \
+  --use_gpu True \
+  --gpu 0 \
   --root_path $root/ETT-small/ \
   --data_path $data_name.csv \
   --model_id ${data_name}_${seq_len}_${pred_len}_ep10 \
@@ -52,6 +54,8 @@ data_name=ETTh2
 CUDA_VISIBLE_DEVICES=$GPU \
 python -u run.py \
   --is_training 1 \
+  --use_gpu True \
+  --gpu 0 \
   --root_path $root/ETT-small/ \
   --data_path $data_name.csv \
   --model_id ${data_name}_${seq_len}_${pred_len}_ep10 \
@@ -87,6 +91,8 @@ data_name=ETTm1
 CUDA_VISIBLE_DEVICES=$GPU \
 python -u run.py \
   --is_training 1 \
+  --use_gpu True \
+  --gpu 0 \
   --root_path $root/ETT-small/ \
   --data_path $data_name.csv \
   --model_id ${data_name}_${seq_len}_${pred_len}_ep10 \
@@ -125,6 +131,8 @@ data_name=ETTm2
 CUDA_VISIBLE_DEVICES=$GPU \
 python -u run.py \
   --is_training 1 \
+  --use_gpu True \
+  --gpu 0 \
   --root_path $root/ETT-small/ \
   --data_path $data_name.csv \
   --model_id ${data_name}_${seq_len}_${pred_len}_ep10 \
@@ -162,6 +170,8 @@ data_name=weather
 CUDA_VISIBLE_DEVICES=$GPU \
 python -u run.py \
   --is_training 1 \
+  --use_gpu True \
+  --gpu 0 \
   --root_path $root/weather/ \
   --data_path weather.csv \
   --model_id ${data_name}_${seq_len}_${pred_len}_ep10 \
@@ -189,6 +199,81 @@ python -u run.py \
 
 
 ###########################
+#      Electricity  (10 epochs)
+###########################
+alpha=0.20
+data_name=electricity
+
+CUDA_VISIBLE_DEVICES=$GPU \
+python -u run.py \
+  --is_training 1 \
+  --use_gpu True \
+  --gpu 0 \
+  --root_path $root/electricity/ \
+  --data_path electricity.csv \
+  --model_id ${data_name}_${seq_len}_${pred_len}_ep10 \
+  --model $model_name \
+  --data custom \
+  --features M \
+  --seq_len $seq_len \
+  --label_len 48 \
+  --pred_len $pred_len \
+  --enc_in 321 \
+  --des 'Exp_ep10' \
+  --n_heads 32 \
+  --d_model 512 \
+  --d_ff 512 \
+  --ca_layers 2 \
+  --pd_layers 1 \
+  --ia_layers 1 \
+  --attn_dropout 0.1 \
+  --num_p 4 \
+  --alpha $alpha \
+  --learning_rate 0.0005 \
+  --train_epochs 10 \
+  --patience 5 \
+  --batch_size 16 \
+  --itr 1 > logs/LongForecasting/TimeBridge/${data_name}_${alpha}_${model_name}_${pred_len}_ep10.logs
+
+
+###########################
+#      Solar  (10 epochs)
+###########################
+alpha=0.05
+data_name=Solar
+
+CUDA_VISIBLE_DEVICES=$GPU \
+python -u run.py \
+  --is_training 1 \
+  --use_gpu True \
+  --gpu 0 \
+  --root_path $root/Solar/ \
+  --data_path solar_AL.txt \
+  --model_id ${data_name}_${seq_len}_${pred_len}_ep10 \
+  --model $model_name \
+  --data Solar \
+  --features M \
+  --seq_len $seq_len \
+  --label_len 48 \
+  --pred_len $pred_len \
+  --enc_in 137 \
+  --ca_layers 1 \
+  --pd_layers 1 \
+  --ia_layers 1 \
+  --des 'Exp_ep10' \
+  --period 48 \
+  --num_p 12 \
+  --d_model 128 \
+  --d_ff 128 \
+  --alpha $alpha \
+  --learning_rate 0.0005 \
+  --train_epochs 10 \
+  --patience 5 \
+  --batch_size 16 \
+  --itr 1 > logs/LongForecasting/TimeBridge/${data_name}_${alpha}_${model_name}_${pred_len}_ep10.logs
+
+
+###########################
 #      Traffic  (10 epochs)
 ###########################
 alpha=0.35
@@ -197,6 +282,8 @@ data_name=traffic
 CUDA_VISIBLE_DEVICES=$GPU \
 python -u run.py \
   --is_training 1 \
+  --use_gpu True \
+  --gpu 0 \
   --root_path $root/traffic/ \
   --data_path traffic.csv \
   --model_id ${data_name}_${seq_len}_${pred_len}_ep10 \
