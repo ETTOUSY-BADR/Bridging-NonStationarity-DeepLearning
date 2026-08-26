@@ -4,19 +4,6 @@
   <strong>Analysis Framework for Non-Stationary Time-Series + Enhanced TimeBridge Implementation</strong>
 </h3>
 
-<p align="center">
-  <a href="https://www.ensea.fr/"><img src="https://img.shields.io/badge/ENSEA-blue?style=for-the-badge"></a>
-  <a href="https://www.etis-lab.fr/"><img src="https://img.shields.io/badge/ETIS%20LAB-orange?style=for-the-badge"></a>
-  <img src="https://img.shields.io/badge/Python-3.10+-yellow?style=for-the-badge">
-  <img src="https://img.shields.io/badge/PyTorch-Deep%20Learning-red?style=for-the-badge">
-</p>
-
-<p align="center">
-  <em>Research Project by <strong>Badr Ettousy</strong> — ENSEA / ETIS LAB</em><br>
-  <em>Supervised by <strong>Dr. Etienne Vareille</strong> & <strong>Dr. Vassilis Christophides</strong></em>
-</p>
-
----
 
 ##  Project Overview
 
